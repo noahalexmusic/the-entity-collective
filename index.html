@@ -1,0 +1,845 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#08090a">
+<meta name="description" content="The Entity Collective — A Dead by Daylight competitive esports community. Enter the trials. Forge your legacy.">
+<title>The Entity Collective | Enter the Fog</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Barlow+Condensed:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --black: #08090a;
+  --red: #9b1c22;
+  --white: #e8e4dc;
+  --gray: #8e8d8b;
+  --border: rgba(255,255,255,.10);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior:smooth; }
+
+body {
+  background:var(--black);
+  color:var(--white);
+  font-family:'Barlow Condensed',sans-serif;
+  overflow-x:hidden;
+}
+
+a { color:inherit; text-decoration:none; }
+
+button { font:inherit; cursor:pointer; }
+
+::selection { background:var(--red); color:white; }
+
+/* NAVIGATION */
+
+header {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:100;
+  background:rgba(5,6,7,.83);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(18px);
+}
+
+nav {
+  max-width:1400px;
+  margin:auto;
+  padding:20px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:25px;
+}
+
+.brand {
+  font-family:Cinzel,serif;
+  font-size:16px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.brand span { color:#bd343a; }
+
+.nav-links {
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+
+.nav-links a {
+  font-size:15px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  color:#aaa;
+  transition:.3s;
+}
+
+.nav-links a:hover { color:white; }
+
+.nav-join {
+  border:1px solid var(--red);
+  padding:10px 22px;
+  color:white!important;
+}
+
+.nav-join:hover { background:var(--red); }
+
+.menu-toggle {
+  display:none;
+  background:none;
+  border:0;
+  color:white;
+  font-size:28px;
+}
+
+/* HERO */
+
+.hero {
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  isolation:isolate;
+  overflow:hidden;
+  padding:140px 20px 100px;
+  background:
+    linear-gradient(to bottom,
+      rgba(0,0,0,.25),
+      rgba(0,0,0,.40) 40%,
+      #08090a 100%),
+    url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2000&q=85')
+    center/cover;
+}
+
+.hero::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:
+    radial-gradient(ellipse at 50% 65%,
+      rgba(115,9,15,.28),
+      transparent 55%),
+    linear-gradient(90deg,
+      rgba(0,0,0,.7),
+      transparent 40%,
+      rgba(0,0,0,.7));
+}
+
+.fog {
+  position:absolute;
+  width:180%;
+  height:45%;
+  left:-40%;
+  bottom:0;
+  pointer-events:none;
+  background:radial-gradient(ellipse,
+    rgba(190,190,190,.14),
+    transparent 65%);
+  filter:blur(45px);
+  animation:fogMove 18s ease-in-out infinite alternate;
+}
+
+.fog.second {
+  bottom:20%;
+  opacity:.5;
+  animation-duration:25s;
+  animation-direction:alternate-reverse;
+}
+
+@keyframes fogMove {
+  from { transform:translateX(-12%); }
+  to { transform:translateX(12%); }
+}
+
+.hero-content {
+  position:relative;
+  z-index:2;
+  max-width:1000px;
+}
+
+.eyebrow {
+  color:#c84b50;
+  letter-spacing:6px;
+  font-size:15px;
+  font-weight:700;
+  text-transform:uppercase;
+}
+
+.tally {
+  font-family:Cinzel,serif;
+  color:#d9d5cd;
+  font-size:65px;
+  letter-spacing:-12px;
+  margin:24px 0 10px;
+  text-shadow:0 0 35px rgba(255,255,255,.14);
+}
+
+.hero h1 {
+  font-family:Cinzel,serif;
+  text-transform:uppercase;
+  font-size:clamp(42px,7vw,100px);
+  font-weight:900;
+  line-height:1.08;
+  letter-spacing:5px;
+  text-shadow:0 8px 40px #000;
+}
+
+.hero h1 span {
+  display:block;
+  color:#a72b30;
+}
+
+.hero-description {
+  max-width:630px;
+  margin:28px auto 35px;
+  font-size:22px;
+  font-weight:400;
+  line-height:1.5;
+  color:#c2c0bd;
+  letter-spacing:1px;
+}
+
+.actions {
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.btn {
+  display:inline-block;
+  padding:15px 32px;
+  border:1px solid #8c2228;
+  background:#871b22;
+  color:white;
+  font-size:16px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  transition:.3s;
+}
+
+.btn:hover {
+  background:#bd3038;
+  box-shadow:0 0 25px rgba(150,20,25,.3);
+  transform:translateY(-2px);
+}
+
+.btn-outline {
+  background:rgba(0,0,0,.4);
+  border-color:#777;
+}
+
+.btn-outline:hover { background:#222; }
+
+.scroll-hint {
+  position:absolute;
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%);
+  color:#999;
+  font-size:12px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+}
+
+/* GENERAL SECTIONS */
+
+section { position:relative; }
+
+.container {
+  width:88%;
+  max-width:1250px;
+  margin:auto;
+}
+
+.section {
+  padding:110px 0;
+}
+
+.section-label {
+  color:#b43b40;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  font-size:14px;
+  font-weight:700;
+  margin-bottom:16px;
+}
+
+.section-title {
+  font-family:Cinzel,serif;
+  font-size:clamp(30px,4vw,53px);
+  line-height:1.2;
+  text-transform:uppercase;
+  margin-bottom:25px;
+}
+
+.section-copy {
+  color:#aaa;
+  font-size:21px;
+  line-height:1.65;
+  max-width:750px;
+}
+
+.red-line {
+  width:65px;
+  height:2px;
+  background:var(--red);
+  margin:25px 0;
+}
+
+/* ABOUT */
+
+.about {
+  background:
+    radial-gradient(ellipse at 85% 50%,
+      rgba(110,10,15,.13),
+      transparent 55%),
+    #090a0b;
+}
+
+.about-grid {
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:75px;
+  align-items:center;
+}
+
+.quote-panel {
+  padding:55px 45px;
+  min-height:330px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  background:
+    linear-gradient(135deg,
+      rgba(0,0,0,.5),
+      rgba(0,0,0,.85)),
+    url('https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1000&q=85')
+    center/cover;
+  border:1px solid var(--border);
+  border-left:3px solid var(--red);
+}
+
+.quote-panel blockquote {
+  font-family:Cinzel,serif;
+  font-size:clamp(23px,3vw,35px);
+  line-height:1.5;
+}
+
+.quote-panel small {
+  margin-top:30px;
+  letter-spacing:3px;
+  color:#b94a4f;
+}
+
+/* COMPETITION */
+
+.competition {
+  background:#0d0e10;
+}
+
+.cards {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+  margin-top:50px;
+}
+
+.card {
+  min-height:290px;
+  padding:38px 30px;
+  border:1px solid var(--border);
+  background:
+    linear-gradient(145deg,#191a1c,#0a0b0d);
+  transition:.3s;
+}
+
+.card:hover {
+  border-color:rgba(160,35,40,.7);
+  transform:translateY(-5px);
+  box-shadow:0 15px 40px rgba(0,0,0,.4);
+}
+
+.card-number {
+  font-family:Cinzel,serif;
+  color:#a82b31;
+  font-size:37px;
+  margin-bottom:35px;
+}
+
+.card h3 {
+  font-family:Cinzel,serif;
+  text-transform:uppercase;
+  font-size:21px;
+  margin-bottom:14px;
+}
+
+.card p {
+  font-size:19px;
+  line-height:1.5;
+  color:#a9a7a5;
+}
+
+/* TOURNAMENTS */
+
+.tournament {
+  background:
+    linear-gradient(90deg,
+      #08090a 5%,
+      rgba(8,9,10,.88) 60%,
+      rgba(8,9,10,.65)),
+    url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1600&q=85')
+    center/cover;
+}
+
+.event-panel {
+  margin-top:45px;
+  max-width:760px;
+  border:1px solid rgba(255,255,255,.15);
+  background:rgba(0,0,0,.6);
+  padding:38px;
+}
+
+.event-status {
+  display:inline-block;
+  border:1px solid #713238;
+  color:#d96d72;
+  padding:8px 14px;
+  font-size:13px;
+  letter-spacing:2px;
+  margin-bottom:24px;
+}
+
+.event-panel h3 {
+  font-family:Cinzel,serif;
+  font-size:28px;
+  margin-bottom:15px;
+}
+
+.event-panel p {
+  color:#aaa;
+  font-size:20px;
+  line-height:1.5;
+}
+
+/* JOIN */
+
+.join {
+  text-align:center;
+  background:
+    radial-gradient(ellipse at center,
+      rgba(115,13,20,.2),
+      transparent 65%),
+    #08090a;
+  border-top:1px solid var(--border);
+}
+
+.join .section-copy {
+  margin:0 auto 35px;
+}
+
+.join .red-line {
+  margin:25px auto;
+}
+
+/* FOOTER */
+
+footer {
+  padding:55px 6% 30px;
+  background:#050506;
+  border-top:1px solid var(--border);
+  text-align:center;
+}
+
+.footer-logo {
+  font-family:Cinzel,serif;
+  font-size:22px;
+  font-weight:900;
+  letter-spacing:3px;
+}
+
+.footer-logo span { color:#a82b31; }
+
+.footer-links {
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  flex-wrap:wrap;
+  margin:30px 0;
+}
+
+.footer-links a {
+  color:#999;
+  text-transform:uppercase;
+  font-size:14px;
+  letter-spacing:2px;
+}
+
+.footer-links a:hover { color:white; }
+
+footer p {
+  color:#777;
+  font-size:15px;
+  line-height:1.6;
+}
+
+/* MOBILE */
+
+@media(max-width:850px) {
+  .menu-toggle { display:block; }
+
+  .nav-links {
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+    padding:25px 6%;
+    background:#090a0b;
+    border-bottom:1px solid var(--border);
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .nav-links.open { display:flex; }
+
+  .about-grid { grid-template-columns:1fr; gap:35px; }
+
+  .cards { grid-template-columns:1fr; }
+
+  .section { padding:75px 0; }
+
+  .hero h1 { letter-spacing:2px; }
+
+  .hero-description { font-size:19px; }
+
+  .tally { font-size:48px; }
+
+  .quote-panel { padding:35px 25px; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    animation-duration:.01ms!important;
+    scroll-behavior:auto!important;
+    transition-duration:.01ms!important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <a href="#home" class="brand">
+      THE ENTITY <span>COLLECTIVE</span>
+    </a>
+
+    <button class="menu-toggle"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      aria-controls="navLinks"
+      onclick="toggleMenu()">
+      &#9776;
+    </button>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#competition">Competition</a>
+      <a href="#tournaments">Tournaments</a>
+      <a href="#join" class="nav-join">Join TEC</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="fog"></div>
+  <div class="fog second"></div>
+
+  <div class="hero-content">
+    <div class="eyebrow">
+      A New Era of Competitive Horror
+    </div>
+
+    <div class="tally" aria-hidden="true">
+      &#8544; &#8544; &#8544; &#8544;
+    </div>
+
+    <h1>
+      THE ENTITY
+      <span>COLLECTIVE</span>
+    </h1>
+
+    <p class="hero-description">
+      Beyond the trials. Beyond survival.
+      A competitive Dead by Daylight community
+      where legends are forged in the fog.
+    </p>
+
+    <div class="actions">
+      <a href="#about" class="btn">
+        Enter the Fog
+      </a>
+
+      <a href="#join" class="btn btn-outline">
+        Join the Collective
+      </a>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    Scroll to Discover
+  </div>
+</section>
+
+<section class="section about" id="about">
+  <div class="container about-grid">
+
+    <div>
+      <div class="section-label">Who We Are</div>
+
+      <h2 class="section-title">
+        Born in the Fog.
+        Built for Competition.
+      </h2>
+
+      <div class="red-line"></div>
+
+      <p class="section-copy">
+        The Entity Collective is an emerging
+        Dead by Daylight esports organization
+        dedicated to bringing players, teams,
+        creators, and competitive communities
+        together.
+        <br><br>
+        Our mission is to develop an organized
+        competitive environment through
+        tournaments, rankings, team development,
+        and opportunities for players to grow.
+        <br><br>
+        Every trial tells a story.
+        Every competitor has a legacy to build.
+      </p>
+    </div>
+
+    <div class="quote-panel">
+      <blockquote>
+        "In the fog, survival is temporary.
+        Legacy is eternal."
+      </blockquote>
+      <small>THE ENTITY COLLECTIVE</small>
+    </div>
+
+  </div>
+</section>
+
+<section class="section competition" id="competition">
+  <div class="container">
+
+    <div class="section-label">
+      The Competitive Realm
+    </div>
+
+    <h2 class="section-title">
+      More Than Just Survival.
+    </h2>
+
+    <div class="red-line"></div>
+
+    <p class="section-copy">
+      We are building the foundation for a
+      competitive Dead by Daylight ecosystem
+      designed around skill, teamwork,
+      sportsmanship, and community.
+    </p>
+
+    <div class="cards">
+
+      <article class="card">
+        <div class="card-number">01</div>
+        <h3>Competitive Teams</h3>
+        <p>
+          A home for aspiring and experienced
+          competitors looking to test their
+          abilities and develop as a team.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-number">02</div>
+        <h3>Official Tournaments</h3>
+        <p>
+          Organized competitions, structured
+          match formats, and a path toward
+          seasonal championships.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-number">03</div>
+        <h3>Player Rankings</h3>
+        <p>
+          A future competitive ranking system
+          recognizing performance, consistency,
+          and achievement across TEC events.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="section tournament" id="tournaments">
+  <div class="container">
+
+    <div class="section-label">
+      The Trials Await
+    </div>
+
+    <h2 class="section-title">
+      Enter the Competition.
+    </h2>
+
+    <div class="red-line"></div>
+
+    <p class="section-copy">
+      Our tournament program is being developed
+      to give Dead by Daylight competitors
+      a place to prove themselves.
+    </p>
+
+    <div class="event-panel">
+      <div class="event-status">
+        TOURNAMENT PROGRAM IN DEVELOPMENT
+      </div>
+
+      <h3>
+        The First Trial Awaits
+      </h3>
+
+      <p>
+        Official event dates, registration
+        details, tournament rules, and
+        competitive formats will be announced
+        as they are finalized.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="section join" id="join">
+  <div class="container">
+
+    <div class="section-label">
+      Your Story Begins Here
+    </div>
+
+    <h2 class="section-title">
+      Will You Answer the Call?
+    </h2>
+
+    <div class="red-line"></div>
+
+    <p class="section-copy">
+      Whether you're a competitive player,
+      team leader, content creator, coach,
+      or someone passionate about Dead by
+      Daylight, there is a future for you
+      within The Entity Collective.
+    </p>
+
+    <div class="actions">
+      <a href="mailto:contact@theentitycollective.com"
+         class="btn"
+         id="applyLink"
+         style="display:none">
+        Apply to Join
+      </a>
+
+      <a href="#tournaments" class="btn btn-outline">
+        Explore Our Vision
+      </a>
+    </div>
+
+    <p style="margin-top:25px;color:#999;font-size:17px">
+      Applications and official contact details
+      will be available soon.
+    </p>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+
+  <div class="footer-logo">
+    THE ENTITY <span>COLLECTIVE</span>
+  </div>
+
+  <div class="footer-links">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#competition">Competition</a>
+    <a href="#tournaments">Tournaments</a>
+    <a href="#join">Join</a>
+  </div>
+
+  <p>
+    An independent Dead by Daylight
+    competitive esports community.
+  </p>
+
+  <p style="margin-top:12px">
+    Not affiliated with or endorsed by
+    Behaviour Interactive.
+  </p>
+
+  <p style="margin-top:20px">
+    &copy; <span id="year"></span>
+    The Entity Collective.
+    All rights reserved.
+  </p>
+
+</footer>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById('navLinks');
+  const button = document.querySelector('.menu-toggle');
+
+  const isOpen = menu.classList.toggle('open');
+  button.setAttribute('aria-expanded', String(isOpen));
+}
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.remove('open');
+    document.querySelector('.menu-toggle')
+      .setAttribute('aria-expanded', 'false');
+  });
+});
+
+document.getElementById('year').textContent =
+  new Date().getFullYear();
+</script>
+
+</body>
+</html>
