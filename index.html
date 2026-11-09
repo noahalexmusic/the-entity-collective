@@ -114,21 +114,24 @@ button:focus-visible,a:focus-visible{
   padding:150px 5% 190px;
   background:#0a0d0e;
 }
+
 .forest-image{
   position:absolute;
   inset:0;
   z-index:-5;
   background:
-    linear-gradient(180deg,
-      #03050688 0%,
-      #06090a55 30%,
-      #08080988 65%,
-      #080a0b 100%),
-    url("https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2200&q=85")
-    center/cover no-repeat;
-  filter:grayscale(1) brightness(.42) contrast(1.35);
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,.12) 0%,
+      rgba(0,0,0,.08) 35%,
+      rgba(0,0,0,.25) 70%,
+      #080a0b 100%
+    ),
+    url("entity-realm.png") center center / cover no-repeat;
+  filter:brightness(.85) contrast(1.08);
   transform:scale(1.04);
 }
+
 .realm::before{
   content:"";
   position:absolute;
