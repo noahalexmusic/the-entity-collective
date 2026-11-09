@@ -1,10 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#08090b">
-  <meta name="description" content="The Entity Collective is an independent Dead by Daylight esports organization bringing competitive players, teams, creators and communities together.">
+
+  <meta name="description" content="The Entity Collective is an independent Dead by Daylight esports organization dedicated to tournaments, competitive players, teams, creators, and community.">
 
   <title>The Entity Collective | Compete. Unite. Survive.</title>
 
@@ -13,10 +15,12 @@
 
 <body>
 
-<!-- OFFICIAL TEC EMBLEM -->
-<svg xmlns="http://www.w3.org/2000/svg"
-     style="position:absolute;width:0;height:0;overflow:hidden"
-     aria-hidden="true">
+<!-- TEC FIVE-MARK EMBLEM -->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  style="position:absolute;width:0;height:0;overflow:hidden"
+  aria-hidden="true"
+>
   <symbol id="tec-emblem" viewBox="0 0 130 140">
     <g fill="currentColor">
       <path d="M19 24 L25 7 L31 119 L24 130 Z"/>
@@ -28,11 +32,11 @@
   </symbol>
 </svg>
 
-<!-- NAVIGATION -->
+<!-- HEADER -->
 <header class="site-header">
   <div class="nav-container">
 
-    <a href="#home" class="site-logo" aria-label="The Entity Collective home">
+    <a href="index.html" class="site-logo" aria-label="The Entity Collective homepage">
       <svg class="logo-mark" aria-hidden="true">
         <use href="#tec-emblem"></use>
       </svg>
@@ -44,24 +48,28 @@
     </a>
 
     <nav class="nav-links" id="navLinks" aria-label="Main navigation">
-      <a href="#home" class="active">Home</a>
-      <a href="#about">About</a>
-      <a href="#tournaments">Tournaments</a>
-      <a href="#competition">Teams</a>
-      <a href="#rankings">Rankings</a>
-      <a href="#creators">Creators</a>
-      <a href="#community">Community</a>
-      <a href="#join">Join</a>
+      <a href="index.html" class="active">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="tournaments.html">Tournaments</a>
+      <a href="index.html#competition">Teams</a>
+      <a href="index.html#rankings">Rankings</a>
+      <a href="index.html#creators">Creators</a>
+      <a href="index.html#community">Community</a>
+      <a href="index.html#join">Join</a>
     </nav>
 
-    <a href="#join" class="nav-cta">Join TEC</a>
+    <a href="index.html#join" class="nav-cta">
+      Join TEC
+    </a>
 
-    <button class="mobile-toggle"
-            id="mobileToggle"
-            type="button"
-            aria-controls="navLinks"
-            aria-expanded="false"
-            aria-label="Open navigation menu">
+    <button
+      class="mobile-toggle"
+      id="mobileToggle"
+      type="button"
+      aria-controls="navLinks"
+      aria-expanded="false"
+      aria-label="Open navigation menu"
+    >
       &#9776;
     </button>
 
@@ -70,373 +78,509 @@
 
 <main>
 
-<!-- CINEMATIC HERO -->
-<section class="hero" id="home">
+  <!-- CINEMATIC HOMEPAGE HERO -->
+  <section class="hero" id="home">
 
-  <div class="hero-background"></div>
-  <div class="fog-layer one" aria-hidden="true"></div>
-  <div class="fog-layer two" aria-hidden="true"></div>
+    <div class="hero-background"></div>
 
-  <div class="hero-content">
+    <div class="fog-layer one" aria-hidden="true"></div>
+    <div class="fog-layer two" aria-hidden="true"></div>
 
-    <svg class="hero-emblem"
-         role="img"
-         aria-label="The Entity Collective five-scratch emblem">
-      <use href="#tec-emblem"></use>
-    </svg>
+    <div class="hero-content">
 
-    <div class="hero-eyebrow">
-      A New Era of Competitive Horror
-    </div>
+      <svg
+        class="hero-emblem"
+        role="img"
+        aria-label="The Entity Collective five-mark emblem"
+      >
+        <use href="#tec-emblem"></use>
+      </svg>
 
-    <h1 class="hero-title">
-      <span class="title-top">The Entity</span>
-      <span class="title-bottom">Collective</span>
-    </h1>
-
-    <div class="hero-tagline">
-      Compete &bull; Unite &bull; Survive
-    </div>
-
-    <p class="hero-subtitle">
-      An independent Dead by Daylight esports organization
-      bringing competitors, creators, and communities
-      together beyond the trials.
-    </p>
-
-    <div class="hero-actions">
-      <a href="#tournaments" class="btn btn-primary">
-        Explore Tournaments
-      </a>
-
-      <a href="#join" class="btn">
-        Join the Collective
-      </a>
-    </div>
-
-  </div>
-
-  <!-- CHAMPIONSHIP PANELS -->
-  <div class="hero-panels">
-
-    <a href="#tournaments" class="feature-panel">
-      <div class="panel-label">The Next Trial</div>
-      <h3>Tournaments</h3>
-      <p>
-        Our competitive event program
-        is currently in development.
-      </p>
-    </a>
-
-    <a href="#competition" class="feature-panel">
-      <div class="panel-label">The Competitors</div>
-      <h3>Teams &amp; Players</h3>
-      <p>
-        Building the next generation
-        of competitive DBD teams.
-      </p>
-    </a>
-
-    <a href="#community" class="feature-panel">
-      <div class="panel-label">Beyond the Trials</div>
-      <h3>Our Community</h3>
-      <p>
-        A place for players, creators,
-        coaches and fans to belong.
-      </p>
-    </a>
-
-  </div>
-
-</section>
-
-<!-- ABOUT -->
-<section class="section section-dark" id="about">
-  <div class="section-container">
-
-    <div class="section-kicker">
-      Who We Are
-    </div>
-
-    <h2 class="section-title">
-      Born in the Fog.
-      <span>Built for Competition.</span>
-    </h2>
-
-    <div class="section-line"></div>
-
-    <p class="section-description">
-      The Entity Collective is an emerging
-      Dead by Daylight esports organization
-      dedicated to building a competitive
-      environment where players, teams,
-      coaches, and creators can grow.
-      <br><br>
-      Our vision is to develop organized
-      tournaments, seasonal rankings,
-      competitive teams, and championships
-      that give players meaningful opportunities
-      to prove themselves.
-      <br><br>
-      We believe competitive gaming should
-      bring people together through teamwork,
-      professionalism, support, and growth.
-    </p>
-
-  </div>
-</section>
-
-<!-- TOURNAMENTS -->
-<section class="section section-black" id="tournaments">
-  <div class="section-container">
-
-    <div class="section-kicker">
-      The Trials Await
-    </div>
-
-    <h2 class="section-title">
-      Enter the <span>Competition.</span>
-    </h2>
-
-    <div class="section-line"></div>
-
-    <p class="section-description">
-      The Entity Collective is developing
-      a structured tournament program
-      for competitive Dead by Daylight.
-    </p>
-
-    <div class="tournament-display">
-
-      <div class="status-label">
-        Tournament Program In Development
+      <div class="hero-eyebrow">
+        A New Era of Competitive Horror
       </div>
 
-      <h3>The First Trial Awaits</h3>
+      <h1 class="hero-title">
+        <span class="title-top">The Entity</span>
+        <span class="title-bottom">Collective</span>
+      </h1>
 
-      <p>
-        Official event dates, registration
-        information, tournament rules,
-        match formats, and brackets
-        will be announced once finalized.
+      <div class="hero-tagline">
+        Compete &bull; Unite &bull; Survive
+      </div>
+
+      <p class="hero-subtitle">
+        An independent Dead by Daylight esports
+        organization bringing competitors,
+        creators, and communities together
+        beyond the trials.
+      </p>
+
+      <div class="hero-actions">
+
+        <a href="tournaments.html" class="btn btn-primary">
+          Explore Tournaments
+        </a>
+
+        <a href="#join" class="btn">
+          Join the Collective
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- HOMEPAGE FEATURE PANELS -->
+    <div class="hero-panels">
+
+      <a href="tournaments.html" class="feature-panel">
+
+        <div class="panel-label">
+          The Next Trial
+        </div>
+
+        <h3>Tournaments</h3>
+
+        <p>
+          Explore our developing competitive
+          tournament and championship program.
+        </p>
+
+      </a>
+
+      <a href="#competition" class="feature-panel">
+
+        <div class="panel-label">
+          The Competitors
+        </div>
+
+        <h3>Teams &amp; Players</h3>
+
+        <p>
+          Discover our vision for Survivor teams
+          and Killer competitors.
+        </p>
+
+      </a>
+
+      <a href="#community" class="feature-panel">
+
+        <div class="panel-label">
+          Beyond the Trials
+        </div>
+
+        <h3>Our Community</h3>
+
+        <p>
+          A community for players, creators,
+          coaches, and fans.
+        </p>
+
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT TEC -->
+  <section class="section section-dark" id="about">
+
+    <div class="section-container">
+
+      <div class="section-kicker">
+        Who We Are
+      </div>
+
+      <h2 class="section-title">
+        Born in the Fog.
+        <span>Built for Competition.</span>
+      </h2>
+
+      <div class="section-line"></div>
+
+      <p class="section-description">
+        The Entity Collective is an emerging
+        Dead by Daylight esports organization
+        focused on building a competitive
+        environment where players, teams,
+        coaches, and content creators can grow.
+        <br><br>
+        Our mission is to create opportunities
+        for competitors to demonstrate their
+        skills through organized tournaments,
+        structured competition, and community
+        involvement.
+        <br><br>
+        We believe esports should be built
+        on professionalism, competitive integrity,
+        teamwork, and respect.
       </p>
 
     </div>
 
-  </div>
-</section>
+  </section>
 
-<!-- TEAMS & COMPETITION -->
-<section class="section section-dark" id="competition">
-  <div class="section-container">
+  <!-- TOURNAMENTS PREVIEW -->
+  <section class="section section-black" id="tournaments">
 
-    <div class="section-kicker">
-      The Competitive Realm
-    </div>
+    <div class="section-container">
 
-    <h2 class="section-title">
-      Every Trial <span>Matters.</span>
-    </h2>
+      <div class="section-kicker">
+        Official TEC Esports
+      </div>
 
-    <div class="section-line"></div>
+      <h2 class="section-title">
+        Enter the <span>Competition.</span>
+      </h2>
 
-    <p class="section-description">
-      Our competitive vision is designed
-      to recognize teamwork, individual
-      skill, strategy, and consistency.
-    </p>
+      <div class="section-line"></div>
 
-    <div class="competition-grid">
+      <p class="section-description">
+        The Entity Collective is developing
+        a competitive tournament system
+        designed to give Dead by Daylight
+        players an organized environment
+        to compete and improve.
+      </p>
 
-      <article class="competition-card">
-        <div class="card-number">01</div>
+      <div class="tournament-display">
 
-        <h3>Survivor Teams</h3>
+        <div class="status-label">
+          Tournament Program In Development
+        </div>
 
-        <p>
-          Organized survivor rosters
-          focused on communication,
-          teamwork, coordination,
-          and competitive strategy.
-        </p>
-      </article>
-
-      <article class="competition-card">
-        <div class="card-number">02</div>
-
-        <h3>Killer Competitors</h3>
+        <h3>The First Trial Awaits</h3>
 
         <p>
-          A pathway for skilled killer
-          players to demonstrate
-          consistency, mechanical skill,
-          and decision-making.
+          Our Tournament Headquarters provides
+          information about our competitive
+          divisions, event development,
+          and long-term championship plans.
+          <br><br>
+          Official dates, registration,
+          match formats, and rules will
+          be announced when finalized.
         </p>
-      </article>
 
-      <article class="competition-card">
-        <div class="card-number">03</div>
+        <div style="margin-top:30px">
 
-        <h3>Seasonal Championships</h3>
+          <a href="tournaments.html" class="btn btn-primary">
+            Visit Tournament Headquarters
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- COMPETITIVE TEAMS -->
+  <section class="section section-dark" id="competition">
+
+    <div class="section-container">
+
+      <div class="section-kicker">
+        The Competitive Realm
+      </div>
+
+      <h2 class="section-title">
+        Every Trial <span>Matters.</span>
+      </h2>
+
+      <div class="section-line"></div>
+
+      <p class="section-description">
+        Competitive Dead by Daylight requires
+        preparation, adaptability, mechanical
+        skill, and teamwork.
+        <br><br>
+        TEC aims to develop opportunities
+        for both Survivor teams and
+        individual Killer competitors.
+      </p>
+
+      <div class="competition-grid">
+
+        <article class="competition-card">
+
+          <div class="card-number">01</div>
+
+          <h3>Survivor Teams</h3>
+
+          <p>
+            Organized Survivor rosters
+            focused on teamwork, communication,
+            objective efficiency, and
+            coordinated competitive strategy.
+          </p>
+
+        </article>
+
+        <article class="competition-card">
+
+          <div class="card-number">02</div>
+
+          <h3>Killer Competitors</h3>
+
+          <p>
+            Competitive opportunities
+            recognizing Killer players
+            for their game knowledge,
+            mechanical ability, pressure
+            management, and consistency.
+          </p>
+
+        </article>
+
+        <article class="competition-card">
+
+          <div class="card-number">03</div>
+
+          <h3>Championship Pathway</h3>
+
+          <p>
+            Our long-term vision includes
+            recurring events, competitive
+            seasons, rankings, qualification
+            systems, and championship finals.
+          </p>
+
+        </article>
+
+      </div>
+
+      <div style="margin-top:35px">
+
+        <a href="tournaments.html" class="btn">
+          Explore Competitive Structure
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PLAYER RANKINGS -->
+  <section class="section section-black" id="rankings">
+
+    <div class="section-container">
+
+      <div class="section-kicker">
+        Competitive Recognition
+      </div>
+
+      <h2 class="section-title">
+        Legends Are <span>Earned.</span>
+      </h2>
+
+      <div class="section-line"></div>
+
+      <p class="section-description">
+        Every match is an opportunity
+        to prove yourself.
+        <br><br>
+        The Entity Collective plans to
+        establish competitive rankings
+        that recognize individual and
+        team performance across official
+        tournament events.
+        <br><br>
+        Our future leaderboards will
+        highlight tournament results,
+        seasonal progress, and
+        competitive achievements.
+      </p>
+
+      <div class="tournament-display">
+
+        <div class="status-label">
+          Rankings Coming Soon
+        </div>
+
+        <h3>Leaderboard Under Development</h3>
 
         <p>
-          Our long-term goal is to
-          introduce competitive seasons,
-          qualification pathways,
-          playoffs, and championship events.
+          Official rankings will become
+          available once TEC has established
+          tournament results and verified
+          competitive records.
         </p>
-      </article>
+
+      </div>
 
     </div>
 
-  </div>
-</section>
+  </section>
 
-<!-- RANKINGS -->
-<section class="section section-black" id="rankings">
-  <div class="section-container">
+  <!-- STREAMERS AND CREATORS -->
+  <section class="section section-dark" id="creators">
 
-    <div class="section-kicker">
-      The Leaderboard
-    </div>
+    <div class="section-container">
 
-    <h2 class="section-title">
-      Legends Are <span>Earned.</span>
-    </h2>
+      <div class="section-kicker">
+        Voices From the Fog
+      </div>
 
-    <div class="section-line"></div>
+      <h2 class="section-title">
+        More Than <span>Competitors.</span>
+      </h2>
 
-    <p class="section-description">
-      We are planning a competitive
-      ranking system that recognizes
-      individual players and teams
-      based on performance in
-      official TEC competitions.
-      <br><br>
-      Rankings will become available
-      once tournament results
-      and competition records
-      are established.
-    </p>
+      <div class="section-line"></div>
 
-  </div>
-</section>
+      <p class="section-description">
+        The Entity Collective isn't just
+        about competition.
+        <br><br>
+        We aim to bring together streamers,
+        content creators, coaches, analysts,
+        commentators, and community leaders
+        who share a passion for
+        Dead by Daylight.
+        <br><br>
+        Through collaboration, community
+        events, and future creator programs,
+        we want to help talented individuals
+        develop their audiences and
+        contribute to the esports scene.
+      </p>
 
-<!-- CREATORS -->
-<section class="section section-dark" id="creators">
-  <div class="section-container">
+      <div class="community-grid">
 
-    <div class="section-kicker">
-      Voices From the Fog
-    </div>
+        <article class="community-card">
 
-    <h2 class="section-title">
-      More Than <span>Competitors.</span>
-    </h2>
+          <h3>Content Creators</h3>
 
-    <div class="section-line"></div>
+          <p>
+            A future platform for streamers
+            and creators to connect,
+            collaborate, and showcase
+            their work.
+          </p>
 
-    <p class="section-description">
-      The Entity Collective aims to
-      bring together streamers,
-      content creators, coaches,
-      analysts, and community leaders.
-      <br><br>
-      Through collaboration and
-      community-driven opportunities,
-      we want to help creators
-      develop their audiences
-      and contribute to the
-      competitive Dead by Daylight scene.
-    </p>
+        </article>
 
-  </div>
-</section>
+        <article class="community-card">
 
-<!-- COMMUNITY -->
-<section class="section section-black" id="community">
-  <div class="section-container">
+          <h3>Coaches &amp; Analysts</h3>
 
-    <div class="section-kicker">
-      Together Beyond the Trials
-    </div>
+          <p>
+            Developing opportunities
+            for experienced players
+            to share knowledge,
+            provide guidance, and
+            support competitive growth.
+          </p>
 
-    <h2 class="section-title">
-      One Realm. <span>One Community.</span>
-    </h2>
+        </article>
 
-    <div class="section-line"></div>
-
-    <p class="section-description">
-      Our organization is built
-      around professionalism,
-      teamwork, family,
-      support, and growth.
-    </p>
-
-    <div class="community-grid">
-
-      <article class="community-card">
-        <h3>Community First</h3>
-        <p>
-          A welcoming environment
-          where players of different
-          experience levels can
-          connect, improve,
-          and support one another.
-        </p>
-      </article>
-
-      <article class="community-card">
-        <h3>Competitive Development</h3>
-        <p>
-          Building opportunities
-          for players, teams,
-          coaches, and staff
-          to develop within
-          a structured esports community.
-        </p>
-      </article>
+      </div>
 
     </div>
 
-  </div>
-</section>
+  </section>
 
-<!-- JOIN -->
-<section class="section join-section" id="join">
-  <div class="section-container">
+  <!-- COMMUNITY -->
+  <section class="section section-black" id="community">
 
-    <div class="section-kicker">
-      Your Trial Begins Here
+    <div class="section-container">
+
+      <div class="section-kicker">
+        Together Beyond the Trials
+      </div>
+
+      <h2 class="section-title">
+        One Realm. <span>One Community.</span>
+      </h2>
+
+      <div class="section-line"></div>
+
+      <p class="section-description">
+        Our vision extends beyond
+        tournament brackets and
+        competitive rankings.
+        <br><br>
+        The Entity Collective aims to
+        build a welcoming community
+        where players, creators,
+        coaches, and fans can connect,
+        improve, and support one another.
+      </p>
+
+      <div class="community-grid">
+
+        <article class="community-card">
+
+          <h3>Community Development</h3>
+
+          <p>
+            Building a supportive
+            environment for members
+            to share experiences,
+            meet teammates,
+            and grow together.
+          </p>
+
+        </article>
+
+        <article class="community-card">
+
+          <h3>Esports Opportunities</h3>
+
+          <p>
+            Creating future opportunities
+            for players, tournament staff,
+            content creators, and coaches
+            to contribute to the organization.
+          </p>
+
+        </article>
+
+      </div>
+
     </div>
 
-    <h2 class="section-title">
-      Will You <span>Enter the Fog?</span>
-    </h2>
+  </section>
 
-    <div class="section-line"></div>
+  <!-- JOIN TEC -->
+  <section class="section join-section" id="join">
 
-    <p class="section-description">
-      Whether you're a survivor main,
-      killer specialist, team leader,
-      content creator, coach, or
-      competitive enthusiast,
-      The Entity Collective is
-      building a future for you.
-      <br><br>
-      Official application details
-      and registration opportunities
-      will be announced as
-      our programs launch.
-    </p>
+    <div class="section-container">
 
-    <a href="#about" class="btn btn-primary">
-      Discover Our Mission
-    </a>
+      <div class="section-kicker">
+        Your Trial Begins Here
+      </div>
 
-  </div>
-</section>
+      <h2 class="section-title">
+        Will You <span>Enter the Fog?</span>
+      </h2>
+
+      <div class="section-line"></div>
+
+      <p class="section-description">
+        Whether you're an experienced
+        Survivor, dedicated Killer player,
+        aspiring esports competitor,
+        content creator, coach, or fan,
+        The Entity Collective is
+        building a competitive community
+        with room to grow.
+        <br><br>
+        Official membership and
+        application information will
+        be published as our
+        programs become available.
+      </p>
+
+      <a href="tournaments.html" class="btn btn-primary">
+        Discover TEC Esports
+      </a>
+
+    </div>
+
+  </section>
 
 </main>
 
@@ -448,14 +592,14 @@
   </div>
 
   <div class="footer-links">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#tournaments">Tournaments</a>
-    <a href="#competition">Teams</a>
-    <a href="#rankings">Rankings</a>
-    <a href="#creators">Creators</a>
-    <a href="#community">Community</a>
-    <a href="#join">Join</a>
+    <a href="index.html">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="tournaments.html">Tournaments</a>
+    <a href="index.html#competition">Teams</a>
+    <a href="index.html#rankings">Rankings</a>
+    <a href="index.html#creators">Creators</a>
+    <a href="index.html#community">Community</a>
+    <a href="index.html#join">Join</a>
   </div>
 
   <p>
@@ -465,50 +609,67 @@
   </p>
 
   <p>
-    An independent Dead by Daylight
-    competitive esports organization.
-    Not affiliated with or endorsed
-    by Behaviour Interactive.
+    Independent Dead by Daylight esports organization.
+    Not affiliated with or endorsed by Behaviour Interactive.
   </p>
 
 </footer>
 
+<!-- WEBSITE INTERACTIONS -->
 <script>
-const mobileToggle = document.getElementById('mobileToggle');
-const navLinks = document.getElementById('navLinks');
+  "use strict";
 
-mobileToggle.addEventListener('click', () => {
-  const isOpen = navLinks.classList.toggle('open');
+  // MOBILE NAVIGATION
+  const mobileToggle =
+    document.getElementById("mobileToggle");
 
-  mobileToggle.setAttribute(
-    'aria-expanded',
-    String(isOpen)
-  );
+  const navLinks =
+    document.getElementById("navLinks");
 
-  mobileToggle.setAttribute(
-    'aria-label',
-    isOpen ? 'Close navigation menu' : 'Open navigation menu'
-  );
-});
+  mobileToggle.addEventListener("click", () => {
 
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
+    const isOpen =
+      navLinks.classList.toggle("open");
 
     mobileToggle.setAttribute(
-      'aria-expanded',
-      'false'
+      "aria-expanded",
+      String(isOpen)
     );
 
     mobileToggle.setAttribute(
-      'aria-label',
-      'Open navigation menu'
+      "aria-label",
+      isOpen
+        ? "Close navigation menu"
+        : "Open navigation menu"
     );
+
   });
-});
 
-document.getElementById('year').textContent =
-  new Date().getFullYear();
+  // CLOSE MOBILE MENU AFTER SELECTION
+  navLinks.querySelectorAll("a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+      navLinks.classList.remove("open");
+
+      mobileToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      mobileToggle.setAttribute(
+        "aria-label",
+        "Open navigation menu"
+      );
+
+    });
+
+  });
+
+  // COPYRIGHT YEAR
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
 </script>
 
 </body>
