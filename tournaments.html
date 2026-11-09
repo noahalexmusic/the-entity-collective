@@ -264,6 +264,19 @@
       line-height: 1.5;
     }
 
+
+    /* HOW COMPETITIVE DBD WORKS */
+    .how-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:38px}
+    .how-card {background:linear-gradient(145deg,#1c1d20,#0c0d0f);border:1px solid var(--border);border-top:3px solid var(--red);padding:32px}
+    .how-card h3 {font-family:var(--heading-font);font-size:27px;margin:0 0 14px}
+    .how-card p,.how-step p,.how-note {color:#c5bdb9;font-size:19px;line-height:1.6}
+    .how-steps {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:30px}
+    .how-step {background:#151619;border:1px solid var(--border);padding:28px}
+    .how-step strong {display:block;color:var(--red-bright);font-size:14px;letter-spacing:2px;margin-bottom:12px}
+    .how-step h3 {font-family:var(--heading-font);font-size:22px;margin-bottom:12px}
+    .how-note {margin-top:28px;padding:24px;border-left:3px solid var(--red);background:#181316}
+    @media(max-width:850px){.how-grid,.how-steps{grid-template-columns:1fr}.how-card{padding:25px}}
+
     /* BOTTOM CTA */
 
     .tournament-bottom {
@@ -506,6 +519,39 @@
 
       </div>
 
+    </div>
+  </section>
+
+
+  <!-- EXPLAINING DEAD BY DAYLIGHT TOURNAMENTS -->
+  <section class="section section-dark" id="how-tournaments-work">
+    <div class="section-container">
+      <div class="section-kicker">New to Competitive Dead by Daylight?</div>
+      <h2 class="section-title">How DBD Tournaments <span>Work.</span></h2>
+      <div class="section-line"></div>
+      <p class="section-description">
+        Dead by Daylight is an asymmetrical multiplayer game: four Survivors face one Killer in each match, known as a Trial. Unlike a traditional 5v5 esports game, the two sides have different objectives.
+      </p>
+      <div class="how-grid">
+        <article class="how-card">
+          <h3>The Survivor Side — Four Players</h3>
+          <p>Survivors cooperate to repair five generators, power the exit gates, and escape. They must also evade the Killer, rescue teammates, and manage their time. A competitive Survivor team is judged according to the tournament's published scoring rules.</p>
+        </article>
+        <article class="how-card">
+          <h3>The Killer Side — One Player</h3>
+          <p>The Killer hunts the four Survivors, interrupts generator repairs, and attempts to sacrifice them on hooks before they escape. Tournament scoring may consider kills, hook stages, or other clearly defined performance measures.</p>
+        </article>
+      </div>
+      <div class="section-kicker" style="margin-top:55px">An Example Team-versus-Team Match</div>
+      <h2 class="section-title">From Trial to <span>Result.</span></h2>
+      <div class="section-line"></div>
+      <p class="section-description">One common way to organize a team matchup is to give each team a four-person Survivor lineup and a designated Killer player. The sides compete in separate Trials and their performances are compared using the same published scoring system.</p>
+      <div class="how-steps">
+        <article class="how-step"><strong>STEP 01</strong><h3>First Trial</h3><p>Team A's four Survivors play against Team B's designated Killer.</p></article>
+        <article class="how-step"><strong>STEP 02</strong><h3>Switch Sides</h3><p>Team B's four Survivors play against Team A's designated Killer, under comparable conditions.</p></article>
+        <article class="how-step"><strong>STEP 03</strong><h3>Determine the Winner</h3><p>Staff compare verified results under the event's scoring and tiebreak rules. The winning team advances if the event uses a bracket.</p></article>
+      </div>
+      <div class="how-note"><strong>Important:</strong> This is an educational example, not TEC's finalized rulebook. Dead by Daylight tournaments do not all use the same format. Some use kills and escapes, others use hook stages or points. Maps, permitted perks and items, Killer selection, tie-breakers, disconnects, and rematches must be specified before an official TEC event begins.</div>
     </div>
   </section>
 
