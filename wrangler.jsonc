@@ -1,8 +1,8 @@
+
 {
   "name": "the-entity-collective",
   "compatibility_date": "2026-11-09",
   "assets": {
-    "directory": "./",
-    "binding": "ASSETS"
+    "directory": "./"
   }
 }
