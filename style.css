@@ -912,3 +912,11 @@ body.realm-community .community-feature:nth-child(3n + 2){border-top-color:#5e82
 .realm-tournaments .tournament-hero h1:after,.realm-teams .roster-hero h1:after,.realm-rankings .rank-hero h1:after,.realm-creators .creator-hero h1:after,.realm-community .community-hero h1:after{content:"";display:block;width:115px;height:3px;background:linear-gradient(90deg,transparent,#b42e3c,transparent);margin:23px auto 0}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 @media(max-width:850px){.site-logo:before{width:23px;height:32px}.nav-links a:after{display:none}}
+
+
+/* IN-WORLD TRANSMISSIONS */
+.realm-signal{position:relative;z-index:3;display:flex;align-items:center;justify-content:center;gap:13px;flex-wrap:wrap;min-height:45px;padding:12px 18px;margin-top:88px;margin-bottom:-88px;background:linear-gradient(90deg,#08090a,#251015 50%,#08090a);border-bottom:1px solid #66212b;color:#d8c8c1;font-size:13px;letter-spacing:2.4px;font-weight:800;text-align:center}
+.realm-signal .signal-light{width:7px;height:7px;border-radius:50%;background:#c9454c;box-shadow:0 0 12px #c9454c}
+.realm-signal .signal-divider{color:#b3434b}
+.realm-home .realm-signal{margin-bottom:-88px}
+@media(max-width:850px){.realm-signal{margin-top:88px;margin-bottom:-88px;font-size:11px;letter-spacing:1px;padding:12px 8px;gap:7px}}
