@@ -920,3 +920,61 @@ body.realm-community .community-feature:nth-child(3n + 2){border-top-color:#5e82
 .realm-signal .signal-divider{color:#b3434b}
 .realm-home .realm-signal{margin-bottom:-88px}
 @media(max-width:850px){.realm-signal{margin-top:88px;margin-bottom:-88px;font-size:11px;letter-spacing:1px;padding:12px 8px;gap:7px}}
+
+
+/* REALM II — DIFFERENT EDITORIAL COMPOSITIONS ON EACH PAGE */
+.realm-tournaments .tournament-hero{text-align:left;justify-content:flex-start;padding-left:max(7%,calc((100vw - 1320px)/2))}
+.realm-tournaments .tournament-hero>div{max-width:720px}
+.realm-tournaments .tournament-hero h1,.realm-tournaments .tournament-hero p{text-align:left;margin-left:0}
+.realm-tournaments .tournament-hero h1:after{margin-left:0}
+.realm-tournaments .tournament-hero:after{background:linear-gradient(90deg,rgba(3,3,5,.8),rgba(3,3,5,.35) 60%,transparent)}
+.realm-tournaments .section:nth-of-type(3){background:linear-gradient(100deg,#0c1113,#111015)}
+.realm-tournaments .section:nth-of-type(4){border-top:1px solid #5b2731;border-bottom:1px solid #5b2731}
+.realm-teams .roster-hero{text-align:left;justify-content:flex-start;padding-left:8%;background:linear-gradient(90deg,#071112,#0c0d0f)}
+.realm-teams .roster-hero>div{max-width:730px}
+.realm-teams .roster-hero h1,.realm-teams .roster-hero p{text-align:left;margin-left:0}
+.realm-teams .roster-hero h1:after{margin-left:0}
+.realm-teams .roster-hero:after{background:linear-gradient(90deg,#061113 2%,rgba(5,12,14,.8) 42%,rgba(5,12,14,.12))}
+.realm-teams .roster-hero:before{background-position:70% center!important}
+.realm-teams .section:nth-of-type(2) .section-container{border-left:4px solid #528c8d;padding-left:clamp(25px,5vw,65px)}
+.realm-rankings .rank-hero{min-height:460px;background:#0f0d0a}
+.realm-rankings .rank-hero:before{opacity:.45;filter:sepia(.5)!important}
+.realm-rankings .rank-hero h1{font-size:clamp(42px,6vw,72px)}
+.realm-rankings .section:nth-of-type(2){background:linear-gradient(140deg,#18130d,#0a0a0a)}
+.realm-rankings .section:nth-of-type(2) .section-container{border:1px solid rgba(190,143,77,.22);padding:clamp(25px,4vw,60px);background:rgba(0,0,0,.25)}
+.realm-rankings .section-kicker{color:#d0a86a}
+.realm-creators .creator-hero{text-align:left;justify-content:flex-start;padding-left:8%;min-height:620px}
+.realm-creators .creator-hero>div{max-width:650px}
+.realm-creators .creator-hero h1,.realm-creators .creator-hero p{text-align:left;margin-left:0}
+.realm-creators .creator-hero h1:after{margin-left:0}
+.realm-creators .creator-hero:after{background:linear-gradient(90deg,#0e0717,rgba(15,8,20,.85) 40%,transparent)}
+.realm-creators .creator-hero:before{background-position:75% center!important}
+.realm-creators .section:nth-of-type(2){background:linear-gradient(115deg,#160d1b,#08090b)}
+.realm-creators .creator-card{border-radius:16px 0 16px 0;transform:rotate(-.35deg)}
+.realm-creators .creator-card:nth-child(even){transform:rotate(.35deg)}
+.realm-community .community-hero{min-height:480px}
+.realm-community .community-hero:before{filter:saturate(.5) hue-rotate(35deg)!important}
+.realm-community .community-hero h1{font-size:clamp(48px,7vw,96px)}
+.realm-community .section:nth-of-type(2){background:radial-gradient(ellipse at center,rgba(112,55,24,.16),transparent 65%),#0a0b0b}
+.realm-community .community-feature-grid{grid-template-columns:repeat(12,minmax(0,1fr))}
+.realm-community .community-feature{grid-column:span 4}
+.realm-community .community-feature:nth-child(1),.realm-community .community-feature:nth-child(6){grid-column:span 6;background:linear-gradient(120deg,#1c1816,#101211)}
+.realm-community .community-feature:nth-child(2),.realm-community .community-feature:nth-child(5){grid-column:span 3}
+.realm-community .community-feature:nth-child(3),.realm-community .community-feature:nth-child(4){grid-column:span 3}
+.realm-about .lore-hero{text-align:left;justify-items:start;padding-left:9%;background-position:70% center}
+.realm-about .lore-hero>div{max-width:760px}
+.realm-about .lore-hero p{text-align:left;margin-left:0}
+.realm-about .section:nth-of-type(2){background:linear-gradient(110deg,#121013,#090b0b)}
+.realm-about .lore-grid{grid-template-columns:1.2fr .8fr}
+.realm-about .lore-panel:first-child{border-left-width:7px}
+.realm-join .lore-hero{min-height:490px;background:linear-gradient(180deg,rgba(0,0,0,.25),#09090a),url("/Fogbound%20Forest_%20Generator%20and%20Sacrificial%20Hook.png") center/cover}
+.realm-join .lore-hero h1{font-size:clamp(55px,9vw,120px)}
+.realm-join .lore-grid{grid-template-columns:repeat(12,minmax(0,1fr))}
+.realm-join .lore-grid .lore-panel{grid-column:span 6;min-height:210px}
+.realm-join .lore-grid .lore-panel:nth-child(2),.realm-join .lore-grid .lore-panel:nth-child(3){border-left-color:#698d8d}
+.realm-join .lore-steps article{border-top:4px solid #ac3443}
+.realm-home .hero{background:radial-gradient(ellipse at center,rgba(89,8,17,.12),transparent 60%),#070809}
+.realm-home .section:nth-of-type(2) .section-container{border-left:3px solid #82202c;padding-left:clamp(20px,4vw,55px)}
+.realm-home .section:nth-of-type(4){background:linear-gradient(115deg,#081314,#111013)}
+.realm-home .section:nth-of-type(6){background:linear-gradient(115deg,#160e1b,#0a0b0c)}
+@media(max-width:900px){.realm-community .community-feature-grid,.realm-join .lore-grid,.realm-about .lore-grid{display:grid;grid-template-columns:1fr}.realm-community .community-feature,.realm-community .community-feature:nth-child(n),.realm-join .lore-grid .lore-panel{grid-column:1}.realm-tournaments .tournament-hero,.realm-teams .roster-hero,.realm-creators .creator-hero,.realm-about .lore-hero{padding-left:6%;padding-right:6%}.realm-about .lore-hero{justify-items:center;text-align:center}.realm-about .lore-hero p{text-align:center}.realm-creators .creator-card,.realm-creators .creator-card:nth-child(even){transform:none}}
