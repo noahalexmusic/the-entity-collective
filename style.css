@@ -871,3 +871,44 @@ img {
   }
 
 }
+
+
+/* ENTITY REALM — SITE-WIDE ART DIRECTION */
+:root{--ember:#d93c43;--bone:#e4d9c7;--fog:#a7a9a4}
+body{background:#07090a;background-image:radial-gradient(ellipse at 12% 25%,rgba(95,10,18,.12),transparent 45%),repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.012) 4px 5px);background-attachment:fixed}
+body:before{content:"";position:fixed;inset:0;z-index:150;pointer-events:none;opacity:.13;background:repeating-linear-gradient(90deg,transparent 0 2px,rgba(255,255,255,.05) 3px 4px);mix-blend-mode:screen}
+.site-header{border-bottom:1px solid rgba(180,45,54,.55);box-shadow:0 12px 50px rgba(0,0,0,.45)}
+.site-logo{position:relative}
+.site-logo:before{content:"";display:block;flex:none;width:30px;height:42px;background:linear-gradient(105deg,#eee5db,#b43d45);clip-path:polygon(4% 17%,14% 9%,23% 82%,31% 4%,39% 0,47% 84%,54% 9%,62% 5%,70% 85%,78% 17%,86% 12%,92% 75%,100% 72%,100% 84%,0 100%,0 86%);filter:drop-shadow(0 0 8px #7a1722)}
+.site-logo:has(.logo-mark):before{display:none}
+.nav-links a{position:relative}
+.nav-links a:after{content:"";position:absolute;bottom:-8px;left:0;width:0;height:1px;background:var(--red-bright);transition:width .25s}
+.nav-links a:hover:after,.nav-links a.active:after{width:100%}
+.section{position:relative;isolation:isolate}
+.section-dark{background:linear-gradient(115deg,rgba(12,15,17,.96),rgba(21,16,19,.96))}
+.section-black{background:linear-gradient(145deg,#070809,#100d10)}
+.section:before{content:"";position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(transparent,#5b1a23,transparent);pointer-events:none}
+.section-kicker{letter-spacing:.23em!important;text-transform:uppercase}
+.section-title{letter-spacing:-.025em;text-shadow:0 8px 25px rgba(0,0,0,.5)}
+.section-line{height:2px!important;background:linear-gradient(90deg,#d43a45,transparent)!important}
+.btn,.nav-cta{clip-path:polygon(0 0,calc(100% - 11px) 0,100% 11px,100% 100%,11px 100%,0 calc(100% - 11px));transition:transform .25s,background .25s,box-shadow .25s}
+.btn:hover,.nav-cta:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(130,15,30,.3)}
+.event-main,.event-side-card,.division-card,.roadmap-step,.information-card,.rank-panel,.rank-step,.creator-card,.creator-path article,.community-feature,.community-values article,.community-note,.how-card,.how-step,.roster-card,.path-card{position:relative;overflow:hidden;transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease}
+.event-main:hover,.event-side-card:hover,.division-card:hover,.roadmap-step:hover,.information-card:hover,.rank-panel:hover,.rank-step:hover,.creator-card:hover,.creator-path article:hover,.community-feature:hover,.community-values article:hover,.community-note:hover,.how-card:hover,.how-step:hover,.roster-card:hover,.path-card:hover{transform:translateY(-5px);border-color:rgba(220,64,73,.65);box-shadow:0 18px 42px rgba(0,0,0,.4)}
+.event-main:after,.division-card:after,.rank-panel:after,.creator-card:after,.community-feature:after,.how-card:after{content:"";position:absolute;right:-42px;top:-42px;width:145px;height:145px;border:1px solid rgba(205,49,63,.18);transform:rotate(45deg);pointer-events:none}
+.site-footer{border-top:1px solid #70202c;background:radial-gradient(ellipse at top,rgba(91,13,23,.2),transparent 65%),#070809}
+.tournament-hero:before,.roster-hero:before,.rank-hero:before,.creator-hero:before,.community-hero:before{background-size:cover!important;filter:saturate(.8)}
+.tournament-hero:after,.roster-hero:after,.rank-hero:after,.creator-hero:after,.community-hero:after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(90,7,19,.13),transparent 30%,rgba(90,7,19,.14)),repeating-linear-gradient(0deg,transparent 0 5px,rgba(0,0,0,.07) 6px 7px)}
+/* Individual realms — distinctive silhouettes and mood for each section */
+body.realm-tournaments .tournament-hero{background:radial-gradient(ellipse at 75% 40%,rgba(145,14,25,.18),transparent 45%),#08090b}
+body.realm-teams .roster-hero{background:radial-gradient(ellipse at 18% 50%,rgba(33,88,91,.23),transparent 55%),#08090b}
+body.realm-rankings .rank-hero{background:radial-gradient(ellipse at 75% 40%,rgba(180,112,39,.17),transparent 55%),#08090b}
+body.realm-creators .creator-hero{background:radial-gradient(ellipse at 75% 45%,rgba(95,46,123,.2),transparent 55%),#08090b}
+body.realm-community .community-hero{background:radial-gradient(ellipse at 25% 45%,rgba(42,95,76,.2),transparent 55%),#08090b}
+body.realm-rankings .rank-panel{border-top-color:#aa783d}
+body.realm-creators .creator-card:nth-child(3n + 2){border-top-color:#7f527e}
+body.realm-community .community-feature:nth-child(3n + 2){border-top-color:#5e8275}
+.realm-tournaments .tournament-hero h1,.realm-teams .roster-hero h1,.realm-rankings .rank-hero h1,.realm-creators .creator-hero h1,.realm-community .community-hero h1{max-width:1000px;margin:auto}
+.realm-tournaments .tournament-hero h1:after,.realm-teams .roster-hero h1:after,.realm-rankings .rank-hero h1:after,.realm-creators .creator-hero h1:after,.realm-community .community-hero h1:after{content:"";display:block;width:115px;height:3px;background:linear-gradient(90deg,transparent,#b42e3c,transparent);margin:23px auto 0}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+@media(max-width:850px){.site-logo:before{width:23px;height:32px}.nav-links a:after{display:none}}
