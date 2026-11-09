@@ -1,746 +1,24 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#07090a">
-<meta name="description" content="The Entity Collective. Competitive Dead by Daylight esports, tournaments, teams and community.">
-<title>The Entity Collective | Enter the Fog</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Cinzel:wght@400;600;700;900&display=swap" rel="stylesheet">
-<style>
-:root{
-  --blood:#b52b32;
-  --blood-dark:#571318;
-  --bone:#e4e0d8;
-  --muted:#a5a6a6;
-  --void:#080a0b;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  background:var(--void);
-  color:var(--bone);
-  font-family:"Barlow Condensed",sans-serif;
-  overflow-x:hidden;
-}
-a{color:inherit;text-decoration:none}
-button{font:inherit;cursor:pointer}
-button:focus-visible,a:focus-visible{
-  outline:2px solid #fff;
-  outline-offset:5px;
-}
-::selection{background:var(--blood);color:white}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#08090b">
+  <meta name="description" content="The Entity Collective is an independent Dead by Daylight esports organization bringing competitive players, teams, creators and communities together.">
 
-/* GAME-STYLE HEADER */
-.site-header{
-  position:absolute;
-  z-index:40;
-  top:0;left:0;right:0;
-  min-height:90px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:18px 5%;
-  gap:30px;
-  border-bottom:1px solid rgba(255,255,255,.09);
-  background:linear-gradient(#050607e8,#05060760);
-}
-.identity{
-  display:flex;
-  align-items:center;
-  gap:15px;
-  flex-shrink:0;
-}
-.identity-mark{width:52px;height:52px}
-.identity-text{
-  font-family:Cinzel,serif;
-  font-size:15px;
-  font-weight:900;
-  letter-spacing:2px;
-  line-height:1.3;
-}
-.identity-text span{display:block;color:#d43c43}
-.navigation{
-  display:flex;
-  align-items:center;
-  gap:30px;
-}
-.navigation a{
-  text-transform:uppercase;
-  letter-spacing:2.5px;
-  font-size:17px;
-  font-weight:700;
-  color:#c7c6c4;
-  transition:color .2s;
-}
-.navigation a:hover,
-.navigation a.active{color:#fff}
-.navigation a.active{
-  border-bottom:2px solid var(--blood);
-  padding-bottom:8px;
-}
-.header-action{
-  border:1px solid #a6383d;
-  padding:10px 21px;
-  white-space:nowrap;
-  text-transform:uppercase;
-  letter-spacing:2px;
-  font-weight:700;
-  background:#2a0b0ec7;
-}
-.header-action:hover{background:#701b21}
-.menu-button{
-  display:none;
-  background:transparent;
-  border:1px solid #555;
-  padding:7px 14px;
-  color:#fff;
-  font-size:24px;
-}
+  <title>The Entity Collective | Compete. Unite. Survive.</title>
 
-/* THE REALM */
-.realm{
-  position:relative;
-  min-height:100svh;
-  isolation:isolate;
-  overflow:hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:150px 5% 190px;
-  background:#0a0d0e;
-}
-
-.forest-image{
-  position:absolute;
-  inset:0;
-  z-index:-5;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(0,0,0,.12) 0%,
-      rgba(0,0,0,.08) 35%,
-      rgba(0,0,0,.25) 70%,
-      #080a0b 100%
-    ),
-    url("entity-realm.png") center center / cover no-repeat;
-  filter:brightness(.85) contrast(1.08);
-  transform:scale(1.04);
-}
-
-.realm::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:-4;
-  background:
-    radial-gradient(ellipse at 78% 72%,
-      #a11b244d,transparent 40%),
-    radial-gradient(ellipse at 20% 65%,
-      #a21c1d36,transparent 35%),
-    linear-gradient(90deg,#020304bb,transparent 45%,#020304aa);
-}
-.realm::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:-1;
-  pointer-events:none;
-  box-shadow:inset 0 -140px 110px -55px #080a0b;
-}
-.moon{
-  position:absolute;
-  width:210px;
-  height:210px;
-  right:17%;
-  top:18%;
-  border-radius:50%;
-  z-index:-3;
-  opacity:.25;
-  background:radial-gradient(circle at 38% 35%,#fff,#87919b 55%,#333);
-  box-shadow:0 0 110px 45px #aeb9c338;
-  filter:blur(2px);
-}
-.fog{
-  position:absolute;
-  pointer-events:none;
-  z-index:1;
-  width:180%;
-  left:-40%;
-  height:250px;
-  background:radial-gradient(ellipse,#c4c9cc28,transparent 65%);
-  filter:blur(35px);
-  animation:fogdrift 24s ease-in-out infinite alternate;
-}
-.fog.one{bottom:10%}
-.fog.two{
-  bottom:38%;
-  opacity:.55;
-  animation-duration:32s;
-  animation-direction:alternate-reverse;
-}
-@keyframes fogdrift{
-  from{transform:translateX(-13%)}
-  to{transform:translateX(13%)}
-}
-
-/* SILHOUETTES */
-  
-.hook-scene,
-.machine,
-.moon,
-.crow {
-  display: none !important;
-}
-
-.hook-scene{
-  position:absolute;
-  right:3%;
-  top:19%;
-  width:200px;
-  height:430px;
-  opacity:.68;
-  z-index:-2;
-  filter:drop-shadow(0 0 25px #000);
-}
-.hook-post{
-  position:absolute;
-  width:24px;
-  height:100%;
-  right:20px;
-  background:linear-gradient(90deg,#050505,#34302d,#070707);
-  transform:rotate(5deg);
-}
-.hook-beam{
-  position:absolute;
-  top:26px;
-  right:4px;
-  width:185px;
-  height:31px;
-  transform:rotate(-8deg);
-  background:linear-gradient(#2b2927,#070707);
-}
-.hook-chain{
-  position:absolute;
-  top:45px;
-  left:48px;
-  width:4px;
-  height:90px;
-  background:repeating-linear-gradient(
-    #171717 0 8px,#6a6761 9px 12px);
-}
-.hook-shape{
-  position:absolute;
-  top:122px;
-  left:27px;
-  width:52px;
-  height:85px;
-  border:11px solid #17191a;
-  border-top:0;
-  border-left:0;
-  border-radius:0 0 60px 55px;
-  transform:rotate(18deg);
-}
-.hook-shape::after{
-  content:"";
-  position:absolute;
-  bottom:0;
-  left:-6px;
-  border-left:12px solid transparent;
-  border-right:5px solid transparent;
-  border-bottom:28px solid #292b2c;
-  transform:rotate(-45deg);
-}
-.machine{
-  position:absolute;
-  bottom:15%;
-  left:2%;
-  width:210px;
-  height:240px;
-  opacity:.65;
-  z-index:-2;
-  filter:drop-shadow(0 0 25px #b11d2450);
-}
-.machine-body{
-  position:absolute;
-  bottom:0;
-  left:10px;
-  width:175px;
-  height:125px;
-  border:9px solid #252525;
-  background:
-    repeating-linear-gradient(90deg,
-      #111 0 10px,#34312f 11px 14px,#0a0a0a 15px 24px);
-  box-shadow:inset 0 0 55px #b51a1a70;
-  transform:skewY(-5deg);
-}
-.machine-body::after{
-  content:"";
-  position:absolute;
-  left:25px;right:25px;bottom:25px;
-  height:30px;
-  background:#a20d16;
-  box-shadow:0 0 30px 8px #d4222666;
-}
-.machine-pipes{
-  position:absolute;
-  bottom:117px;
-  left:26px;
-  display:flex;
-  gap:9px;
-}
-.machine-pipes i{
-  display:block;
-  width:24px;
-  height:65px;
-  border-radius:9px 9px 2px 2px;
-  border:4px solid #444;
-  background:linear-gradient(90deg,#0b0b0b,#6a6260,#131313);
-}
-.machine-light{
-  position:absolute;
-  bottom:140px;
-  left:45px;
-  width:9px;
-  height:115px;
-  background:#292929;
-}
-.machine-light::before{
-  content:"";
-  position:absolute;
-  top:-5px;left:-28px;
-  width:68px;height:32px;
-  background:radial-gradient(circle,#e2a56b,#4c3524 50%,#111 60%);
-  border-radius:30%;
-  box-shadow:0 0 35px #d58b5266;
-}
-
-/* CROWS */
-.crow{
-  position:absolute;
-  z-index:2;
-  color:#030405;
-  font-family:serif;
-  font-size:65px;
-  text-shadow:0 0 12px #000;
-  opacity:.8;
-  pointer-events:none;
-  animation:birdfloat 7s ease-in-out infinite;
-}
-.crow.one{top:26%;right:26%;transform:rotate(-18deg)}
-.crow.two{
-  top:40%;left:15%;
-  font-size:36px;
-  animation-delay:-3s;
-}
-@keyframes birdfloat{
-  0%,100%{translate:0 0}
-  50%{translate:0 -15px}
-}
-
-/* EMBERS */
-.embers{
-  position:absolute;
-  inset:0;
-  overflow:hidden;
-  pointer-events:none;
-  z-index:3;
-}
-.ember{
-  position:absolute;
-  bottom:-10px;
-  width:3px;height:3px;
-  border-radius:50%;
-  background:#ff6d46;
-  box-shadow:0 0 9px #f44336;
-  animation:rise var(--duration) linear infinite;
-  animation-delay:var(--delay);
-  left:var(--left);
-  opacity:0;
-}
-@keyframes rise{
-  0%{transform:translateY(0) translateX(0);opacity:0}
-  15%{opacity:.85}
-  85%{opacity:.6}
-  100%{transform:translateY(-85vh) translateX(55px);opacity:0}
-}
-
-/* MAIN TITLE */
-.hero-content{
-  position:relative;
-  z-index:5;
-  width:100%;
-  max-width:1050px;
-  text-align:center;
-}
-.hero-emblem{
-  width:115px;
-  height:130px;
-  margin:0 auto 20px;
-  filter:drop-shadow(0 0 22px #b52b3255);
-}
-.overline{
-  font-size:16px;
-  letter-spacing:7px;
-  text-transform:uppercase;
-  color:#d5c8c5;
-  font-weight:700;
-  margin-bottom:23px;
-}
-.hero-title{
-  margin:0;
-  font-family:Cinzel,serif;
-  font-weight:900;
-  text-transform:uppercase;
-  line-height:1.05;
-  letter-spacing:3px;
-  text-shadow:0 8px 25px #000;
-}
-.hero-title .first{
-  display:block;
-  font-size:clamp(45px,7vw,100px);
-  color:#e2dfd9;
-}
-.hero-title .second{
-  display:block;
-  font-size:clamp(45px,7.5vw,110px);
-  color:#b72c32;
-  text-shadow:0 0 50px #a3182140,0 8px 25px #000;
-}
-.hero-subtitle{
-  margin:26px 0 14px;
-  letter-spacing:8px;
-  font-size:clamp(12px,1.5vw,19px);
-  text-transform:uppercase;
-  color:#dad8d5;
-}
-.hero-description{
-  max-width:610px;
-  margin:0 auto 35px;
-  color:#b8b9ba;
-  font-size:22px;
-  line-height:1.45;
-  letter-spacing:.5px;
-}
-.hero-buttons{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:17px;
-}
-.game-button{
-  position:relative;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-width:220px;
-  padding:15px 29px;
-  border:1px solid #a7a4a0;
-  background:#08090ad9;
-  color:white;
-  font-size:18px;
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:2px;
-  transition:.25s;
-  clip-path:polygon(3% 0,100% 0,97% 100%,0 100%);
-}
-.game-button.primary{
-  background:linear-gradient(110deg,#641318,#a2252b,#551014);
-  border-color:#d34a50;
-}
-.game-button:hover{
-  transform:translateY(-4px);
-  background:#a52c33;
-  box-shadow:0 0 25px #b52b3240;
-}
-.game-button span{margin-left:17px;font-size:23px}
-
-/* MAIN-MENU TILES */
-.quick-menu{
-  position:absolute;
-  bottom:45px;
-  left:5%;
-  right:5%;
-  z-index:8;
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:14px;
-}
-.quick-tile{
-  display:flex;
-  align-items:center;
-  gap:15px;
-  min-height:92px;
-  padding:18px;
-  border:1px solid #77736c66;
-  border-bottom:2px solid #9b242a;
-  background:linear-gradient(130deg,#111416e8,#050607ed);
-  transition:.25s;
-}
-.quick-tile:hover{
-  background:#281216f0;
-  border-color:#b82c33;
-  transform:translateY(-5px);
-}
-.tile-symbol{
-  color:#c43a41;
-  font-size:36px;
-  min-width:42px;
-  text-align:center;
-}
-.quick-tile strong{
-  display:block;
-  text-transform:uppercase;
-  font-size:21px;
-  letter-spacing:2px;
-}
-.quick-tile small{
-  display:block;
-  margin-top:5px;
-  font-size:13px;
-  color:#999;
-  text-transform:uppercase;
-  letter-spacing:1.5px;
-}
-
-/* LOWER WEBSITE */
-.content-section{
-  padding:110px 7%;
-  position:relative;
-  border-top:1px solid #ffffff0c;
-}
-.content-section.dark{
-  background:radial-gradient(ellipse at 80% 40%,#39111645,transparent 55%),#0b0d0e;
-}
-.content-section.black{background:#08090a}
-.content-wrap{max-width:1250px;margin:auto}
-.section-kicker{
-  font-size:15px;
-  letter-spacing:5px;
-  color:#c64047;
-  text-transform:uppercase;
-  font-weight:700;
-  margin-bottom:15px;
-}
-.section-heading{
-  font-family:Cinzel,serif;
-  font-size:clamp(31px,4.5vw,56px);
-  text-transform:uppercase;
-  margin:0 0 25px;
-  line-height:1.2;
-}
-.section-heading em{
-  font-style:normal;
-  color:#b72b32;
-}
-.section-description{
-  max-width:760px;
-  color:#b4b2b0;
-  font-size:22px;
-  line-height:1.6;
-}
-.divider{
-  height:2px;
-  width:80px;
-  background:#b62a31;
-  margin:25px 0;
-}
-.realm-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-  margin-top:50px;
-}
-.realm-card{
-  position:relative;
-  min-height:300px;
-  padding:35px;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  background:linear-gradient(160deg,#22272a,#0c0d0f 65%);
-  border:1px solid #ffffff1c;
-  overflow:hidden;
-  transition:.25s;
-}
-.realm-card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(180deg,transparent,#070809dd);
-  pointer-events:none;
-}
-.realm-card:hover{
-  border-color:#b72b32;
-  transform:translateY(-4px);
-}
-.realm-card>*{position:relative}
-.realm-card .number{
-  position:absolute;
-  top:24px;
-  left:30px;
-  font-family:Cinzel,serif;
-  font-size:42px;
-  color:#b12a31;
-}
-.realm-card h3{
-  font-family:Cinzel,serif;
-  font-size:23px;
-  text-transform:uppercase;
-  margin:0 0 10px;
-}
-.realm-card p{
-  color:#b0b0b0;
-  font-size:19px;
-  line-height:1.45;
-  margin:0;
-}
-.trial-banner{
-  padding:55px;
-  border:1px solid #5c3033;
-  background:
-    linear-gradient(100deg,#0b0d0ff0,#16090bc9),
-    url("https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1600&q=85")
-    center/cover;
-}
-.trial-status{
-  display:inline-block;
-  padding:8px 15px;
-  border:1px solid #91343a;
-  color:#e1a1a5;
-  font-size:14px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  margin-bottom:20px;
-}
-.trial-banner h3{
-  font-family:Cinzel,serif;
-  font-size:clamp(27px,4vw,45px);
-  margin:0 0 18px;
-}
-.trial-banner p{
-  color:#bcb9b6;
-  font-size:21px;
-  line-height:1.5;
-  max-width:700px;
-}
-.join-section{
-  text-align:center;
-  background:
-    radial-gradient(ellipse at center,#4b12193b,transparent 65%),
-    #08090a;
-}
-.join-section .divider{margin:25px auto}
-.join-section .section-description{margin:0 auto 35px}
-footer{
-  padding:45px 7%;
-  text-align:center;
-  border-top:1px solid #ffffff1a;
-  background:#050607;
-  color:#999;
-  font-size:16px;
-  line-height:1.7;
-}
-.footer-brand{
-  color:#eee;
-  font-family:Cinzel,serif;
-  font-weight:900;
-  font-size:20px;
-  letter-spacing:2px;
-  margin-bottom:15px;
-}
-.footer-brand span{color:#b72b32}
-.footer-nav{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:24px;
-  margin:22px 0;
-  text-transform:uppercase;
-  letter-spacing:2px;
-}
-.footer-nav a:hover{color:white}
-
-/* MOBILE */
-@media(max-width:1050px){
-  .navigation{gap:15px}
-  .navigation a{font-size:14px}
-  .quick-tile{padding:13px;gap:8px}
-  .quick-tile strong{font-size:17px}
-  .tile-symbol{font-size:27px;min-width:30px}
-}
-@media(max-width:800px){
-  .site-header{min-height:75px;padding:12px 5%}
-  .identity-text{font-size:12px}
-  .identity-mark{width:40px;height:40px}
-  .menu-button{display:block}
-  .header-action{display:none}
-  .navigation{
-    display:none;
-    position:absolute;
-    top:100%;left:0;right:0;
-    background:#08090bf7;
-    padding:25px;
-    flex-direction:column;
-    align-items:stretch;
-    border-bottom:1px solid #633;
-  }
-  .navigation.open{display:flex}
-  .navigation a{font-size:19px;padding:10px}
-  .realm{min-height:950px;padding:120px 5% 390px}
-  .hero-title .first,.hero-title .second{
-    font-size:clamp(38px,9vw,75px);
-    letter-spacing:0;
-  }
-  .hero-emblem{width:85px;height:100px}
-  .hero-subtitle{letter-spacing:4px}
-  .hero-description{font-size:19px}
-  .moon{width:125px;height:125px}
-  .hook-scene{right:-65px;opacity:.35}
-  .machine{left:-75px;opacity:.35}
-  .quick-menu{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    bottom:35px;
-  }
-  .quick-tile{min-height:100px}
-  .realm-grid{grid-template-columns:1fr}
-  .realm-card{min-height:230px}
-  .content-section{padding:75px 6%}
-  .trial-banner{padding:30px}
-}
-@media(max-width:430px){
-  .realm{min-height:930px;padding-bottom:380px}
-  .overline{font-size:12px;letter-spacing:3px}
-  .hero-buttons{flex-direction:column}
-  .game-button{width:100%}
-  .quick-tile strong{font-size:15px}
-  .quick-tile small{font-size:11px}
-  .tile-symbol{font-size:24px}
-  .hero-title .first,.hero-title .second{font-size:36px}
-}
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{
-    animation:none!important;
-    scroll-behavior:auto!important;
-    transition:none!important;
-  }
-}
-</style>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- Reusable custom five-scratch emblem -->
-<svg width="0" height="0"
-  style="position:absolute;overflow:hidden"
-  aria-hidden="true">
-  <symbol id="tec-mark" viewBox="0 0 130 140">
-    <g fill="#e8e4dc">
+<!-- OFFICIAL TEC EMBLEM -->
+<svg xmlns="http://www.w3.org/2000/svg"
+     style="position:absolute;width:0;height:0;overflow:hidden"
+     aria-hidden="true">
+  <symbol id="tec-emblem" viewBox="0 0 130 140">
+    <g fill="currentColor">
       <path d="M19 24 L25 7 L31 119 L24 130 Z"/>
       <path d="M44 13 L51 0 L57 125 L49 138 Z"/>
       <path d="M70 18 L77 4 L83 119 L75 135 Z"/>
@@ -750,336 +28,488 @@ footer{
   </symbol>
 </svg>
 
+<!-- NAVIGATION -->
 <header class="site-header">
-  <a href="#home" class="identity" aria-label="The Entity Collective home">
-    <svg class="identity-mark" aria-hidden="true">
-      <use href="#tec-mark"></use>
-    </svg>
-    <div class="identity-text">
-      THE ENTITY
-      <span>COLLECTIVE</span>
-    </div>
-  </a>
+  <div class="nav-container">
 
-  <nav class="navigation" id="navigation" aria-label="Main navigation">
-    <a class="active" href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#tournaments">Tournaments</a>
-    <a href="#teams">Teams</a>
-    <a href="#creators">Creators</a>
-    <a href="#join">Join</a>
-  </nav>
+    <a href="#home" class="site-logo" aria-label="The Entity Collective home">
+      <svg class="logo-mark" aria-hidden="true">
+        <use href="#tec-emblem"></use>
+      </svg>
 
-  <a class="header-action" href="#join">Join TEC</a>
+      <div class="logo-text">
+        THE ENTITY
+        <span>COLLECTIVE</span>
+      </div>
+    </a>
 
-  <button class="menu-button"
-    id="menuButton"
-    aria-controls="navigation"
-    aria-expanded="false"
-    aria-label="Open navigation">
-    &#9776;
-  </button>
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#tournaments">Tournaments</a>
+      <a href="#competition">Teams</a>
+      <a href="#rankings">Rankings</a>
+      <a href="#creators">Creators</a>
+      <a href="#community">Community</a>
+      <a href="#join">Join</a>
+    </nav>
+
+    <a href="#join" class="nav-cta">Join TEC</a>
+
+    <button class="mobile-toggle"
+            id="mobileToggle"
+            type="button"
+            aria-controls="navLinks"
+            aria-expanded="false"
+            aria-label="Open navigation menu">
+      &#9776;
+    </button>
+
+  </div>
 </header>
 
 <main>
-<section class="realm" id="home">
-  <div class="forest-image"></div>
-  <div class="moon"></div>
-  <div class="fog one"></div>
-  <div class="fog two"></div>
 
-  <div class="hook-scene" aria-hidden="true">
-    <div class="hook-post"></div>
-    <div class="hook-beam"></div>
-    <div class="hook-chain"></div>
-    <div class="hook-shape"></div>
-  </div>
+<!-- CINEMATIC HERO -->
+<section class="hero" id="home">
 
-  <div class="machine" aria-hidden="true">
-    <div class="machine-light"></div>
-    <div class="machine-pipes">
-      <i></i><i></i><i></i><i></i>
-    </div>
-    <div class="machine-body"></div>
-  </div>
-
-  <div class="crow one" aria-hidden="true">&#10022;</div>
-  <div class="crow two" aria-hidden="true">&#10022;</div>
-  <div class="embers" id="embers" aria-hidden="true"></div>
+  <div class="hero-background"></div>
+  <div class="fog-layer one" aria-hidden="true"></div>
+  <div class="fog-layer two" aria-hidden="true"></div>
 
   <div class="hero-content">
-    <svg class="hero-emblem" role="img" aria-label="Five-scratch emblem">
-      <use href="#tec-mark"></use>
+
+    <svg class="hero-emblem"
+         role="img"
+         aria-label="The Entity Collective five-scratch emblem">
+      <use href="#tec-emblem"></use>
     </svg>
 
-    <div class="overline">
-      The Trials Are Only the Beginning
+    <div class="hero-eyebrow">
+      A New Era of Competitive Horror
     </div>
 
     <h1 class="hero-title">
-      <span class="first">The Entity</span>
-      <span class="second">Collective</span>
+      <span class="title-top">The Entity</span>
+      <span class="title-bottom">Collective</span>
     </h1>
 
-    <div class="hero-subtitle">
-      Dead by Daylight Esports Organization
+    <div class="hero-tagline">
+      Compete &bull; Unite &bull; Survive
     </div>
 
-    <p class="hero-description">
-      Beyond the trials. Beyond survival.
-      A new competitive realm is taking shape.
-      Enter the fog and forge your legacy.
+    <p class="hero-subtitle">
+      An independent Dead by Daylight esports organization
+      bringing competitors, creators, and communities
+      together beyond the trials.
     </p>
 
-    <div class="hero-buttons">
-      <a class="game-button primary" href="#join">
-        Enter the Collective <span>&rarr;</span>
+    <div class="hero-actions">
+      <a href="#tournaments" class="btn btn-primary">
+        Explore Tournaments
       </a>
-      <a class="game-button" href="#about">
-        Discover TEC <span>&rarr;</span>
+
+      <a href="#join" class="btn">
+        Join the Collective
       </a>
     </div>
+
   </div>
 
-  <div class="quick-menu">
-    <a href="#tournaments" class="quick-tile">
-      <div class="tile-symbol">&#9876;</div>
-      <div>
-        <strong>Tournaments</strong>
-        <small>Competitive Events</small>
-      </div>
+  <!-- CHAMPIONSHIP PANELS -->
+  <div class="hero-panels">
+
+    <a href="#tournaments" class="feature-panel">
+      <div class="panel-label">The Next Trial</div>
+      <h3>Tournaments</h3>
+      <p>
+        Our competitive event program
+        is currently in development.
+      </p>
     </a>
 
-    <a href="#teams" class="quick-tile">
-      <div class="tile-symbol">&#9813;</div>
-      <div>
-        <strong>Teams</strong>
-        <small>Rosters &amp; Competition</small>
-      </div>
+    <a href="#competition" class="feature-panel">
+      <div class="panel-label">The Competitors</div>
+      <h3>Teams &amp; Players</h3>
+      <p>
+        Building the next generation
+        of competitive DBD teams.
+      </p>
     </a>
 
-    <a href="#creators" class="quick-tile">
-      <div class="tile-symbol">&#9673;</div>
-      <div>
-        <strong>Creators</strong>
-        <small>Community &amp; Content</small>
-      </div>
+    <a href="#community" class="feature-panel">
+      <div class="panel-label">Beyond the Trials</div>
+      <h3>Our Community</h3>
+      <p>
+        A place for players, creators,
+        coaches and fans to belong.
+      </p>
     </a>
 
-    <a href="#join" class="quick-tile">
-      <div class="tile-symbol">&#10022;</div>
-      <div>
-        <strong>Join TEC</strong>
-        <small>Become Part of the Realm</small>
-      </div>
-    </a>
   </div>
+
 </section>
 
-<section class="content-section dark" id="about">
-  <div class="content-wrap">
-    <div class="section-kicker">Beyond the Campfire</div>
-    <h2 class="section-heading">
-      A New Realm <em>Awakens.</em>
-    </h2>
-    <div class="divider"></div>
-    <p class="section-description">
-      The Entity Collective is an emerging competitive
-      Dead by Daylight organization built to unite
-      players, teams, coaches, creators and fans.
-      <br><br>
-      Our ambition is to create a structured esports
-      ecosystem with organized tournaments, team
-      development, rankings and seasonal championships.
-      <br><br>
-      Every trial is an opportunity to prove yourself.
-      Every competitor has a story worth telling.
-    </p>
-  </div>
-</section>
+<!-- ABOUT -->
+<section class="section section-dark" id="about">
+  <div class="section-container">
 
-<section class="content-section black" id="teams">
-  <div class="content-wrap">
-    <div class="section-kicker">The Competitive Realm</div>
-    <h2 class="section-heading">
-      The Fog Demands <em>Champions.</em>
-    </h2>
-    <div class="divider"></div>
-    <p class="section-description">
-      We are developing a competitive environment
-      where teamwork, strategy, dedication and
-      performance define the path forward.
-    </p>
-
-    <div class="realm-grid">
-      <article class="realm-card">
-        <div class="number">I</div>
-        <h3>Survivor Teams</h3>
-        <p>
-          Coordinated teams built around communication,
-          strategy, teamwork and competitive execution.
-        </p>
-      </article>
-
-      <article class="realm-card">
-        <div class="number">II</div>
-        <h3>Killer Competition</h3>
-        <p>
-          A competitive pathway for skilled killer
-          players to demonstrate precision,
-          decision-making and consistency.
-        </p>
-      </article>
-
-      <article class="realm-card">
-        <div class="number">III</div>
-        <h3>Competitive Rankings</h3>
-        <p>
-          Planned seasonal standings and performance
-          tracking to recognize competitors
-          across official TEC events.
-        </p>
-      </article>
+    <div class="section-kicker">
+      Who We Are
     </div>
+
+    <h2 class="section-title">
+      Born in the Fog.
+      <span>Built for Competition.</span>
+    </h2>
+
+    <div class="section-line"></div>
+
+    <p class="section-description">
+      The Entity Collective is an emerging
+      Dead by Daylight esports organization
+      dedicated to building a competitive
+      environment where players, teams,
+      coaches, and creators can grow.
+      <br><br>
+      Our vision is to develop organized
+      tournaments, seasonal rankings,
+      competitive teams, and championships
+      that give players meaningful opportunities
+      to prove themselves.
+      <br><br>
+      We believe competitive gaming should
+      bring people together through teamwork,
+      professionalism, support, and growth.
+    </p>
+
   </div>
 </section>
 
-<section class="content-section dark" id="tournaments">
-  <div class="content-wrap">
-    <div class="section-kicker">The Trials Await</div>
-    <h2 class="section-heading">
-      Only the Strongest <em>Endure.</em>
-    </h2>
-    <div class="divider"></div>
+<!-- TOURNAMENTS -->
+<section class="section section-black" id="tournaments">
+  <div class="section-container">
 
-    <div class="trial-banner">
-      <div class="trial-status">
+    <div class="section-kicker">
+      The Trials Await
+    </div>
+
+    <h2 class="section-title">
+      Enter the <span>Competition.</span>
+    </h2>
+
+    <div class="section-line"></div>
+
+    <p class="section-description">
+      The Entity Collective is developing
+      a structured tournament program
+      for competitive Dead by Daylight.
+    </p>
+
+    <div class="tournament-display">
+
+      <div class="status-label">
         Tournament Program In Development
       </div>
-      <h3>The First Trial</h3>
+
+      <h3>The First Trial Awaits</h3>
+
       <p>
-        The Entity Collective is preparing its
-        competitive tournament structure.
-        Official rules, dates, registration details,
-        brackets and formats will be announced
-        once confirmed by TEC leadership.
+        Official event dates, registration
+        information, tournament rules,
+        match formats, and brackets
+        will be announced once finalized.
       </p>
+
     </div>
+
   </div>
 </section>
 
-<section class="content-section black" id="creators">
-  <div class="content-wrap">
-    <div class="section-kicker">Voices From the Fog</div>
-    <h2 class="section-heading">
-      Every Legend Has <em>A Story.</em>
+<!-- TEAMS & COMPETITION -->
+<section class="section section-dark" id="competition">
+  <div class="section-container">
+
+    <div class="section-kicker">
+      The Competitive Realm
+    </div>
+
+    <h2 class="section-title">
+      Every Trial <span>Matters.</span>
     </h2>
-    <div class="divider"></div>
+
+    <div class="section-line"></div>
+
     <p class="section-description">
-      Competitive Dead by Daylight is more than
-      what happens inside a trial.
-      <br><br>
-      TEC aims to support streamers, creators,
-      coaches, analysts and community members
-      who help grow the competitive scene.
-      Our creator program and partnership
-      opportunities are being developed.
+      Our competitive vision is designed
+      to recognize teamwork, individual
+      skill, strategy, and consistency.
     </p>
+
+    <div class="competition-grid">
+
+      <article class="competition-card">
+        <div class="card-number">01</div>
+
+        <h3>Survivor Teams</h3>
+
+        <p>
+          Organized survivor rosters
+          focused on communication,
+          teamwork, coordination,
+          and competitive strategy.
+        </p>
+      </article>
+
+      <article class="competition-card">
+        <div class="card-number">02</div>
+
+        <h3>Killer Competitors</h3>
+
+        <p>
+          A pathway for skilled killer
+          players to demonstrate
+          consistency, mechanical skill,
+          and decision-making.
+        </p>
+      </article>
+
+      <article class="competition-card">
+        <div class="card-number">03</div>
+
+        <h3>Seasonal Championships</h3>
+
+        <p>
+          Our long-term goal is to
+          introduce competitive seasons,
+          qualification pathways,
+          playoffs, and championship events.
+        </p>
+      </article>
+
+    </div>
+
   </div>
 </section>
 
-<section class="content-section join-section" id="join">
-  <div class="content-wrap">
-    <div class="section-kicker">Your Trial Begins Here</div>
-    <h2 class="section-heading">
-      Will You <em>Enter the Fog?</em>
+<!-- RANKINGS -->
+<section class="section section-black" id="rankings">
+  <div class="section-container">
+
+    <div class="section-kicker">
+      The Leaderboard
+    </div>
+
+    <h2 class="section-title">
+      Legends Are <span>Earned.</span>
     </h2>
-    <div class="divider"></div>
+
+    <div class="section-line"></div>
+
     <p class="section-description">
-      Whether you're a survivor main, killer specialist,
-      team leader, coach or content creator,
-      The Entity Collective is building a place
-      for the next generation of competitors.
+      We are planning a competitive
+      ranking system that recognizes
+      individual players and teams
+      based on performance in
+      official TEC competitions.
       <br><br>
-      Official application information is coming soon.
+      Rankings will become available
+      once tournament results
+      and competition records
+      are established.
     </p>
-    <a href="#about" class="game-button primary">
-      Explore Our Mission <span>&rarr;</span>
+
+  </div>
+</section>
+
+<!-- CREATORS -->
+<section class="section section-dark" id="creators">
+  <div class="section-container">
+
+    <div class="section-kicker">
+      Voices From the Fog
+    </div>
+
+    <h2 class="section-title">
+      More Than <span>Competitors.</span>
+    </h2>
+
+    <div class="section-line"></div>
+
+    <p class="section-description">
+      The Entity Collective aims to
+      bring together streamers,
+      content creators, coaches,
+      analysts, and community leaders.
+      <br><br>
+      Through collaboration and
+      community-driven opportunities,
+      we want to help creators
+      develop their audiences
+      and contribute to the
+      competitive Dead by Daylight scene.
+    </p>
+
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section class="section section-black" id="community">
+  <div class="section-container">
+
+    <div class="section-kicker">
+      Together Beyond the Trials
+    </div>
+
+    <h2 class="section-title">
+      One Realm. <span>One Community.</span>
+    </h2>
+
+    <div class="section-line"></div>
+
+    <p class="section-description">
+      Our organization is built
+      around professionalism,
+      teamwork, family,
+      support, and growth.
+    </p>
+
+    <div class="community-grid">
+
+      <article class="community-card">
+        <h3>Community First</h3>
+        <p>
+          A welcoming environment
+          where players of different
+          experience levels can
+          connect, improve,
+          and support one another.
+        </p>
+      </article>
+
+      <article class="community-card">
+        <h3>Competitive Development</h3>
+        <p>
+          Building opportunities
+          for players, teams,
+          coaches, and staff
+          to develop within
+          a structured esports community.
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- JOIN -->
+<section class="section join-section" id="join">
+  <div class="section-container">
+
+    <div class="section-kicker">
+      Your Trial Begins Here
+    </div>
+
+    <h2 class="section-title">
+      Will You <span>Enter the Fog?</span>
+    </h2>
+
+    <div class="section-line"></div>
+
+    <p class="section-description">
+      Whether you're a survivor main,
+      killer specialist, team leader,
+      content creator, coach, or
+      competitive enthusiast,
+      The Entity Collective is
+      building a future for you.
+      <br><br>
+      Official application details
+      and registration opportunities
+      will be announced as
+      our programs launch.
+    </p>
+
+    <a href="#about" class="btn btn-primary">
+      Discover Our Mission
     </a>
+
   </div>
 </section>
+
 </main>
 
-<footer>
+<!-- FOOTER -->
+<footer class="site-footer">
+
   <div class="footer-brand">
     THE ENTITY <span>COLLECTIVE</span>
   </div>
 
-  <div class="footer-nav">
+  <div class="footer-links">
     <a href="#home">Home</a>
     <a href="#about">About</a>
-    <a href="#teams">Teams</a>
     <a href="#tournaments">Tournaments</a>
+    <a href="#competition">Teams</a>
+    <a href="#rankings">Rankings</a>
     <a href="#creators">Creators</a>
+    <a href="#community">Community</a>
     <a href="#join">Join</a>
   </div>
 
   <p>
     &copy; <span id="year"></span>
-    The Entity Collective. All rights reserved.
+    The Entity Collective.
+    All rights reserved.
   </p>
+
   <p>
-    An independent Dead by Daylight esports community.
-    Not affiliated with or endorsed by Behaviour Interactive.
+    An independent Dead by Daylight
+    competitive esports organization.
+    Not affiliated with or endorsed
+    by Behaviour Interactive.
   </p>
+
 </footer>
 
 <script>
-const menuButton=document.getElementById("menuButton");
-const navigation=document.getElementById("navigation");
+const mobileToggle = document.getElementById('mobileToggle');
+const navLinks = document.getElementById('navLinks');
 
-menuButton.addEventListener("click",()=>{
-  const open=navigation.classList.toggle("open");
-  menuButton.setAttribute("aria-expanded",String(open));
-  menuButton.setAttribute(
-    "aria-label",
-    open?"Close navigation":"Open navigation"
+mobileToggle.addEventListener('click', () => {
+  const isOpen = navLinks.classList.toggle('open');
+
+  mobileToggle.setAttribute(
+    'aria-expanded',
+    String(isOpen)
+  );
+
+  mobileToggle.setAttribute(
+    'aria-label',
+    isOpen ? 'Close navigation menu' : 'Open navigation menu'
   );
 });
 
-navigation.querySelectorAll("a").forEach(link=>{
-  link.addEventListener("click",()=>{
-    navigation.classList.remove("open");
-    menuButton.setAttribute("aria-expanded","false");
-    menuButton.setAttribute("aria-label","Open navigation");
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+
+    mobileToggle.setAttribute(
+      'aria-expanded',
+      'false'
+    );
+
+    mobileToggle.setAttribute(
+      'aria-label',
+      'Open navigation menu'
+    );
   });
 });
 
-document.getElementById("year").textContent=
+document.getElementById('year').textContent =
   new Date().getFullYear();
-
-/* Lightweight atmospheric ember particles */
-const emberContainer=document.getElementById("embers");
-const reducedMotion=window.matchMedia(
-  "(prefers-reduced-motion: reduce)"
-).matches;
-
-if(!reducedMotion){
-  for(let i=0;i<28;i++){
-    const ember=document.createElement("span");
-    ember.className="ember";
-    ember.style.setProperty(
-      "--left",(Math.random()*100)+"%"
-    );
-    ember.style.setProperty(
-      "--duration",(8+Math.random()*12)+"s"
-    );
-    ember.style.setProperty(
-      "--delay",(-Math.random()*20)+"s"
-    );
-    emberContainer.appendChild(ember);
-  }
-}
 </script>
+
 </body>
 </html>
